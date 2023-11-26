@@ -21,7 +21,11 @@ function multiply() {
 };
 
 function divide() {
-  return previousValue / currentValue;
+  if (currentValue === 0) {
+    return currentScreen.textContent = 'Error / 0';
+  } else {
+    return previousValue / currentValue;
+  };
 };
 
 function operate() {
@@ -35,11 +39,7 @@ function operate() {
     case '*':
       return multiply(previousValue, currentValue);
     case '/':
-      if (currentValue === 0) {
-        return 'Error / 0';
-      } else {
-        return divide(previousValue, currentValue);
-      };
+      return divide(previousValue, currentValue);
   };
 };
 
